@@ -30,7 +30,7 @@
   border-radius: 4px;
   /* border: 2px solid antiquewhite; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .inputGroup{
@@ -47,5 +47,6 @@
     border-radius: 2px;
     color: black;
     border: 1px solid double rgb(235, 233, 233);
+    max-width: 10rem;
     
 }

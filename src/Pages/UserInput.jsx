@@ -4,16 +4,17 @@ import { useState } from "react"
 
 export const UserInput = () => {
 
-const [customerInput, setCustomerInput]= useState({ begInvestment: 4000, 
+const [customerInput, setCustomerInput]= useState({ begInvestment: "4000", 
                                                     annInvestment: 1200,
                                                     returnInv:6,
                                                     yearInv:35
                                                     });
 
-function callUserInput(inputId, val){
-    setCustomerInput((prev)=>{
-        return(...prev, [inputId]:val);
-    })
+function callUserInput( inputId,val){
+    setCustomerInput((prev)=>({
+    ...prev, 
+    [inputId]:val
+    }))
 }
 
 console.log(customerInput);
