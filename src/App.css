@@ -45,8 +45,21 @@
 .inputGroup input{
     background-color: rgb(202, 196, 185);
     border-radius: 2px;
+    
     color: black;
     border: 1px solid double rgb(235, 233, 233);
-    max-width: 10rem;
+    width: 10rem;
     
+}
+
+.inputGroup label{
+    font-weight: bold;
+}
+
+#resetButton{
+    margin:1rem;
+    padding:0.5rem;
+    color:white;
+    border: 1px solid white;
+    border-radius: 1rem;
 }
