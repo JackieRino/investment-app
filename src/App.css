@@ -63,3 +63,24 @@
     border: 1px solid white;
     border-radius: 1rem;
 }
+
+.inputGroup p{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 900px){
+
+        #header{
+            display: flex;
+            flex-direction: row;
+        }
+
+        #userInput{
+            display: flex;
+            flex-direction: column;
+        }
+}

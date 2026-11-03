@@ -43,21 +43,21 @@ function resetInputFeilds(){
 
          <div className="inputGroup">
             <p>
-                <label> Annual <br/> Investment (£)</label>
+                <label> Annual Investment (£)</label>
                 <input type="number" size="20" required value={customerInput.annInvestment} onChange={(e)=> callUserInput('annInvestment',e.target.value)}/>
             </p>
         </div>
 
          <div className="inputGroup">
             <p>
-                <label> Return <br/> Expected (%)</label>
+                <label> Return Expected (%)</label>
                 <input type="number" size="20" required value={customerInput.returnInv} onChange={(e)=> callUserInput('returnInv',e.target.value)}/>
             </p>
         </div>
 
          <div className="inputGroup">
             <p>
-                <label> Year <br/> Investment</label>
+                <label> Year  Investment</label>
                 <input type="number" size="20" required value={customerInput.yearInv} onChange={(e)=> callUserInput('yearInv',e.target.value)}/>
             </p>
         </div>
