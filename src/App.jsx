@@ -4,6 +4,8 @@ import './App.css'
 import { Header } from './Pages/Header'
 import { UserInput } from './Pages/UserInput';
 import { useInputBindingHook } from './Pages/InputBindingHook';
+import { OutputData } from './Pages/OutputDisplay';
+import { CalculateInvestmentResults } from './Pages/InvestmentCalculator';
 
 
 function App() {
@@ -13,10 +15,11 @@ function App() {
   };
 // when you need the updater function.. add it below
   const {callUserInput, resetInputFeilds,customerInput} = useInputBindingHook();
+  const calculateInvestment= CalculateInvestmentResults(customerInput);
 
 
   
-console.log(customerInput);
+
   return (
     <>
            <div className="min-h-screen bg-slate-900 flex-col items-center justify-center m-4"> 
@@ -28,12 +31,10 @@ console.log(customerInput);
                     AnnInv={customerInput.annInvestment}
                     RetInv={customerInput.returnInv}
                     YearInv={customerInput.yearInv}
-                    OnChangeFunction={callUserInput} 
+                    OnChangeFunction={callUserInput}
+                    OnClick={resetInputFeilds}/>
 
-        
-        
-            
-            OnClick={resetInputFeilds}/>
+        <OutputData InvestmentCalculator={calculateInvestment}/>
 </div>
 
     </div>

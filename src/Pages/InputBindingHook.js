@@ -3,7 +3,7 @@ import { useState } from "react"
 // when you declare this at the parent youll add the parameters its child needs
 export function useInputBindingHook(){
 
-    const initialValues={begInvestment: "4000", 
+    const initialValues={begInvestment: 4000, 
                      annInvestment: 1200,
                     returnInv:6,                                       
                      yearInv:35};
