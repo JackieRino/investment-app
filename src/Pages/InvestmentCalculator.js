@@ -1,8 +1,6 @@
 
 
-export function CalculateInvestmentResults({begInvestment, annInvestment, returnInv,yearInv})
-
-{
+export function CalculateInvestmentResults({begInvestment, annInvestment, returnInv,yearInv}){
 
 const annualData=[];
 
@@ -26,4 +24,11 @@ for(let i = 0; i < yearInv; i++){
 
   return annualData;
 }
+
+
+export const Formatter= new Intl.NumberFormat("en-GB",{style:"currency", 
+                                                       currency: "GBP",
+                                                       minimumFractionDigits:0,
+                                                       maximumFractionDigits:0});
+
 

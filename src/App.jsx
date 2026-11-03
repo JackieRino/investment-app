@@ -5,7 +5,8 @@ import { Header } from './Pages/Header'
 import { UserInput } from './Pages/UserInput';
 import { useInputBindingHook } from './Pages/InputBindingHook';
 import { OutputData } from './Pages/OutputDisplay';
-import { CalculateInvestmentResults } from './Pages/InvestmentCalculator';
+import { CalculateInvestmentResults, Formatter } from './Pages/InvestmentCalculator';
+import { generatepdf } from './Pages/GeneratePdf';
 
 
 function App() {
@@ -17,7 +18,10 @@ function App() {
   const {callUserInput, resetInputFeilds,customerInput} = useInputBindingHook();
   const calculateInvestment= CalculateInvestmentResults(customerInput);
 
-
+function handleGenerateReport(){
+  const resData= calculateInvestment;
+  generatepdf({...customerInput,results:resData})
+};
   
 
   return (
@@ -26,6 +30,7 @@ function App() {
 <div className='text-center'>
 
         <Header PageTitle={headinginfo.title} Subtitle={headinginfo.subtitle}/>
+
         
         <UserInput BegInv={customerInput.begInvestment}
                     AnnInv={customerInput.annInvestment}
@@ -34,7 +39,9 @@ function App() {
                     OnChangeFunction={callUserInput}
                     OnClick={resetInputFeilds}/>
 
-        <OutputData InvestmentCalculator={calculateInvestment}/>
+        <OutputData InvestmentCalculator={calculateInvestment} 
+                    Formatter={Formatter} 
+                    ReportGenerator={handleGenerateReport}/>
 </div>
 
     </div>

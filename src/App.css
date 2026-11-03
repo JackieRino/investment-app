@@ -72,6 +72,33 @@
 }
 
 
+table{
+  width:100%;
+  table-layout: fixed;
+  margin-top:15px;
+  color: white;
+
+}
+
+#allSummaryCards{
+    padding: 2px;
+    color:white;
+     margin: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.summaryCard{
+    border: 1px solid white;
+    
+    border-radius: 5px;
+    width: 120px;
+  height: 120px;
+  padding: 3px;
+}
+
 @media only screen and (max-width: 900px){
 
         #header{

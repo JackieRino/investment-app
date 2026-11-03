@@ -6,7 +6,7 @@ export function useInputBindingHook(){
     const initialValues={begInvestment: 4000, 
                      annInvestment: 1200,
                     returnInv:6,                                       
-                     yearInv:35};
+                     yearInv:15};
 
     const [customerInput, setCustomerInput]= useState(initialValues);
 
@@ -16,7 +16,7 @@ export function useInputBindingHook(){
 
 return(  setCustomerInput((prev)=>({
     ...prev, 
-    [inputId]:val
+    [inputId]: +val
     })))
 
     }else {
