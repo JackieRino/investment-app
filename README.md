@@ -1,3 +1,19 @@
+Overview:
+#Calculates projected investment growth based on initial investment, annual contributions, expected return rate and investment duration.
+#Switch bwteen GBP(£), USD($) AND EUR(€).
+#Results table that shows a year-by-year breakdown of investment gorwth, including total interest earned and total contributions.
+#Invested summaries show overall amount invested and interest accumulated over investment period
+# A PDF report can be generated and donwloadable containing table data
+
+technologies used:
+#React
+#Javascript
+#Html
+#Css and Tailwind css
+#jsPdf
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
