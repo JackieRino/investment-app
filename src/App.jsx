@@ -8,6 +8,7 @@ import { OutputData } from './Pages/OutputDisplay';
 import { CalculateInvestmentResults } from './Pages/InvestmentCalculator';
 import { generatepdf } from './Pages/GeneratePdf';
 import { useState } from 'react';
+import { currencyFormatter } from './Pages/currencyFormatter';
 
 
 
@@ -18,10 +19,7 @@ function App() {
   };
 
 const [curr, setCurr]=useState("GBP");
-const Formatter= new Intl.NumberFormat("en-GB",{style:"currency", 
-                                                       currency: curr,
-                                                       minimumFractionDigits:0,
-                                                       maximumFractionDigits:0});
+const Formatter= currencyFormatter(curr);
 
 
 
@@ -30,9 +28,9 @@ const Formatter= new Intl.NumberFormat("en-GB",{style:"currency",
   const {callUserInput, resetInputFeilds,customerInput} = useInputBindingHook();
   const calculateInvestment= CalculateInvestmentResults(customerInput);
 
-function handleGenerateReport(){
+function handleGenerateReport(currency){
   const resData= calculateInvestment;
-  generatepdf({...customerInput,results:resData})
+  generatepdf({...customerInput,results:resData,currency:currency})
 };
   
 
@@ -79,7 +77,7 @@ function currencyChanger(currency){
         </div>
         <OutputData InvestmentCalculator={calculateInvestment} 
                     Formatter={Formatter} 
-                    ReportGenerator={handleGenerateReport}/>
+                    ReportGenerator={()=>handleGenerateReport(curr)}/>
 </div>
 
     </div>

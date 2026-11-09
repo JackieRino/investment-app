@@ -109,7 +109,7 @@ table{
   font-weight: bold;
 }
 
-.currencyButton:focus, .currencyButton:active{
+.currencyButton:focus, .currencyButton:active, button:focus, button:active{
   color:green;
 }
 

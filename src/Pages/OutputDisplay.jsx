@@ -1,7 +1,11 @@
 
-import { LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
+import { useState } from "react";
+import { LineChart,Line,XAxis,YAxis,CartesianGrid,Legend,ResponsiveContainer } from "recharts";
+
 
 export function OutputData(props){
+
+const [view,setView] = useState("yearly");
 
 const resultData= props.InvestmentCalculator;
 const initialIinvestment= resultData[0].valueEndOfYear-resultData[0].interest-resultData[0].annualInvest;
@@ -10,31 +14,14 @@ const formatter= props.Formatter;
 
 const highestInterest = Math.max(...resultData.map((item)=>item.interest));
 
+const finalResult= resultData[resultData.length-1];
 
+const totalInterestEarned= finalResult ? finalResult.valueEndOfYear - finalResult.annualInvest * finalResult.year - initialIinvestment : 0;
+
+
+const totalInvested= finalResult? finalResult.valueEndOfYear - totalInterestEarned : 0;
 
   return <>
-
-<div id="allSummaryCards">
-
-              <div className="summaryCard">
-
-                <h2>Total Invested Amount</h2>
-                <p className="figure">pending</p>
-
-              </div>
-
-              <div className="summaryCard">
-                <h2>Total Interest Earned</h2>
-                <p className="figure">pending</p>
-
-              </div>
-               <div>
-              <button className="center" onClick={props.ReportGenerator}>Generate Report</button>
-            </div>
-
-            </div>
-
-            
 
       <table>
           <thead>
@@ -57,6 +44,8 @@ const highestInterest = Math.max(...resultData.map((item)=>item.interest));
 
                   const isHighestInterest = oneObject.interest === highestInterest;
 
+               
+
                return   <tr key={index}
                             style={{backgroundColor: isHighestInterest ? "rgb(90, 244, 95)" : "transparent"}}>
                      
@@ -70,8 +59,27 @@ const highestInterest = Math.max(...resultData.map((item)=>item.interest));
             })}
           </tbody>
 
+          <tfoot>
+              <tr>
+                <th colSpan="3" >Total Interest Earned</th>
+                <th>{formatter.format(totalInterestEarned)}</th>
+              </tr>
+
+              <tr>
+                <th colSpan="3">Total Invested</th>
+                <th>{formatter.format(totalInvested)}</th>
+
+              </tr>
+
+          </tfoot>
+
       </table>
-  
+
+   <div>
+              <button className="center text-white" onClick={props.ReportGenerator}>Generate Report</button>
+  </div>
+
+
             <h2 className="text-white m-5" >Investment Growth Over Time</h2>
             <ResponsiveContainer width="80%" height={300}>
                 <LineChart data={resultData}>

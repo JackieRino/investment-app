@@ -1,11 +1,12 @@
 import jsPDF from "jspdf";
-import { Formatter } from "./InvestmentCalculator";
+import { currencyFormatter } from "./currencyFormatter";
+
 
 
 export function generatepdf(data) {
     const doc = new jsPDF();
 
-
+const Formatter= currencyFormatter(data.currency);
     const initialInvestment = data.begInvestment;
 
 
