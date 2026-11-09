@@ -109,6 +109,6 @@ table{
         #userInput{
             display: flex;
             flex-direction: column;
-            max-width: 30rem;
+            max-width: 20rem;
         }
 }
