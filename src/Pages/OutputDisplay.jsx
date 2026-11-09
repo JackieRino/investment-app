@@ -35,11 +35,11 @@ const formatter= props.Formatter
       <table>
           <thead>
               <tr>
-                <th>Year</th>
-                <th>Investment(£)</th>
-                <th>Interest (year)</th>
-                <th>Total Interest</th>
-                <th>Total Amount Investment</th>
+                <th className="columnHead">Year</th>
+                <th className="columnHead">Investment(£)</th>
+                <th className="columnHead">Interest (year)</th>
+                <th className="columnHead">Total Interest</th>
+                <th className="columnHead">Total Amount Investment</th>
               </tr>
           </thead>
           <tbody>

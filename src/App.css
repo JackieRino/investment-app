@@ -111,4 +111,8 @@ table{
             flex-direction: column;
             max-width: 20rem;
         }
+
+        .columnHead{
+          font-size: small;
+        }
 }
