@@ -99,6 +99,20 @@ table{
   padding: 3px;
 }
 
+.currencyButton{
+  color:rgb(252, 254, 252);
+  width: 3rem;
+  height: 3rem;
+  
+  margin:1rem;
+  padding:1rem;
+  font-weight: bold;
+}
+
+.currencyButton:focus, .currencyButton:active{
+  color:green;
+}
+
 @media only screen and (max-width: 900px){
 
         #header{
@@ -115,4 +129,10 @@ table{
         .columnHead{
           font-size: small;
         }
+
+        table{
+          font-size: small;
+        }
+
+        
 }

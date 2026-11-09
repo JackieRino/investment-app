@@ -1,11 +1,15 @@
 
+import { LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer } from "recharts";
 
 export function OutputData(props){
 
 const resultData= props.InvestmentCalculator;
 const initialIinvestment= resultData[0].valueEndOfYear-resultData[0].interest-resultData[0].annualInvest;
 
-const formatter= props.Formatter
+const formatter= props.Formatter;
+
+const highestInterest = Math.max(...resultData.map((item)=>item.interest));
+
 
 
   return <>
@@ -36,7 +40,7 @@ const formatter= props.Formatter
           <thead>
               <tr>
                 <th className="columnHead">Year</th>
-                <th className="columnHead">Investment(£)</th>
+                <th className="columnHead">Investment</th>
                 <th className="columnHead">Interest (year)</th>
                 <th className="columnHead">Total Interest</th>
                 <th className="columnHead">Total Amount Investment</th>
@@ -51,7 +55,10 @@ const formatter= props.Formatter
 
                   const totalAmountInvested= oneObject.valueEndOfYear - totalInterest;
 
-               return   <tr key={index}>
+                  const isHighestInterest = oneObject.interest === highestInterest;
+
+               return   <tr key={index}
+                            style={{backgroundColor: isHighestInterest ? "rgb(90, 244, 95)" : "transparent"}}>
                      
                     <td>{oneObject.year}</td>
                     <td>{formatter.format(oneObject.valueEndOfYear)}</td>
@@ -65,7 +72,28 @@ const formatter= props.Formatter
 
       </table>
   
-            
+            <h2 className="text-white m-5" >Investment Growth Over Time</h2>
+            <ResponsiveContainer width="80%" height={300}>
+                <LineChart data={resultData}>
+
+                <CartesianGrid strokeDasharray={"3 3"}/>
+                <XAxis dataKey="year"
+                        label={{value:"Year", position:"insideBottom", offset:-5}}/>
+                
+                <YAxis tickFormatter={(value)=>formatter.format(value)}/>
+
+                <Legend/>
+                <Line type="monotone"
+                      dataKey="valueEndOfYear"
+                      name="Investment Value"
+                      stroke="#2563eb"
+                      strokeWidth={3}/>
+
+
+
+                </LineChart>
+
+            </ResponsiveContainer>
   
   </>
 
